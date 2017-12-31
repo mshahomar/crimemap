@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&effect=shadow-multiple" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}Crime Map{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="display-1">Crime Map</h1>
+        <form action="/add" method="POST">
+            <input class="form-control" type="text" name="userinput">
+            <input class="form-control" type="submit" value="Submit">
+        </form>
+        <a href="/clear">Clear</a>
+        {% for userinput in data %}
+            <p>{{ userinput }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
